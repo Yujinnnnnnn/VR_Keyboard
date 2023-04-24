@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour
 {
@@ -11,10 +13,6 @@ public class ButtonController : MonoBehaviour
     public GameObject screenKeyborad;
     public GameObject chatPopUp;
     public GameObject getMasege;
-
-    [Header("Physical KeyBorad")]
-    public GameObject deskObject;
-    public GameObject monitorObject;
 
 
     private void Start()
@@ -36,21 +34,22 @@ public class ButtonController : MonoBehaviour
             chatPopUp.SetActive(true);
             Invoke("GetMasege",2f);
 
-            //Instantiate(deskObject);
-            //Instantiate(monitorObject);
         }
         else if (keyboradNum == 2) //Physical Keyboard
         {
-            mainUi.SetActive(false);
-            // Instantiate(deskObject);
-            // Instantiate(monitorObject);
+            GameObject physicalButton = GameObject.Find("2.Physical Button");
+            Text buttonText = physicalButton.GetComponentInChildren<Text>(); 
+            buttonText.text = "Sorry. This is still being tested";
         }
         else if (keyboradNum == 3)//iPhone keyboard
         {
-            mainUi.SetActive(false);
+            GameObject iPhoneButton = GameObject.Find("3. iPhone Button"); 
+            Text buttonText = iPhoneButton.GetComponentInChildren<Text>();
+            buttonText.text = "Sorry. This is still being tested"; 
         }
     }
 
+    
 
     public void GetMasege()
     {
